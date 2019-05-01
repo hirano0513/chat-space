@@ -1,9 +1,7 @@
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, add_index :name|
-|email|string|null: false, unique: true|
-|password|string|null: false,|
+|name|string|null: false, index :true, unique: true|
 
 ### Association
 - has_many :massages
@@ -15,8 +13,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|reference|null: false, foreign_key: true|
-|group_id|reference|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
@@ -38,8 +36,8 @@ has_many :users, through: :members
 |------|----|-------|
 |body|text||
 |image|string||
-|group_id|reference|null: false, foreign_key: true|
-|user_id|reference|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
