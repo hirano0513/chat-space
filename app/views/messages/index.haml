@@ -32,9 +32,9 @@
     .right-contents-header
       .current-group
         %h2.current-group__name a
-        %ul.member-list Member :
-        %li.member-list__member test-user
-        %li.member-list__member test-user2
+        %ul.current-group__members Member :
+        %li.current-group__member test-user
+        %li.current-group__member test-user2
       = link_to root_path do
         .right-contents-header__btn Edit
     .messages
@@ -53,8 +53,8 @@
     .form
       = form_for root_path do |f|
         .text-box
-          = f.text_field :text, placeholder: "type a message", class: 'input-text__box'
-          %label.fa.fa-image
+          = f.text_field :text, placeholder: "type a message", class: 'text-box__input'
+          %label.fa.fa-image.image-label
             = f.file_field :image, class: 'image-label__input'
-            = f.submit "Send", name: 'commit', class: 'new-message__submit-btn'
+            = f.submit "Send", name: 'commit', class: 'text-box__submit-btn'
 
