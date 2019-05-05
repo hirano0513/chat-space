@@ -72,7 +72,7 @@
     float: right;
     height: 100%;
     width: calc(100vw - 300px);
-    .right-contents-header {
+    &-header {
       position: relative;
       @include right-contentsPadding();
       height: 100px;
@@ -84,12 +84,12 @@
           font-size: 20px;
           color: $darkgray;
         }
-        .member-list {
+        &__members {
           float: left;
           font-size: 12px;
           color: $gray;
         }
-        .member-list__member {
+        &__member {
           float: left;
           padding-left: 5px;
           font-size: 12px;
@@ -145,7 +145,7 @@
       display: inline-block;
       position: relative;
       width: 100%;
-      .input-text__box {
+      &__input {
         padding-left: 10px;
         height: 50px;
         width: calc(100% - 125px);
@@ -160,7 +160,7 @@
       } .image-label__input {
         display: none;
       }
-      .new-message__submit-btn {
+      &__submit-btn {
         width: 100px;
         height: 50px;
         padding: 0 auto;
