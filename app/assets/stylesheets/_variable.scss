@@ -1,0 +1,12 @@
+@mixin left-contensPadding($padding: 0px) {
+  padding: $padding 20px;
+}
+@mixin right-contentsPadding($padding: 0px) {
+  padding: $padding 40px;
+}
+
+$white: #ffffffff;
+$gray: #99999999;
+$darkgray: #33333333;
+$deepgray: #434A54;
+$skyblue: #38aef0;

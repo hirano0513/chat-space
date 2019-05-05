@@ -1,0 +1,60 @@
+.contents
+  .head グループを作成しました
+  .left-contents
+    .left-contents-header
+      %p.user-name test-user
+      %ul.user-menu
+      = link_to root_path do
+        %li.p.fa.fa-cog
+      = link_to root_path do
+        %li.p.fa.fa-edit
+
+    .groups
+      .group
+        = link_to root_path do
+          %p.group__group-name test-group
+        = link_to root_path do
+          %p.group__latest-massage さようなら！
+
+      .group
+        = link_to root_path do
+          %p.group__group-name sample-group
+        = link_to root_path do
+          %p.group__latest-massage hello!
+
+      .group
+        = link_to root_path do
+          %p.group__group-name example
+        = link_to root_path do
+          %p.group__latest-massage まだメッセージがありません
+
+  .right-contents
+    .right-contents-header
+      .current-group
+        %h2.current-group__name a
+        %ul.current-group__members Member :
+        %li.current-group__member test-user
+        %li.current-group__member test-user2
+      = link_to root_path do
+        .right-contents-header__btn Edit
+    .messages
+      .message
+        .info
+          %p.info__user test-user
+          %p.info__date 2019/5/4(sat) 00:00:00
+        .message__text こんにちは！
+
+      .message
+        .info
+          %p.info__user test-user
+          %p.info__date 2019/5/4(sat) 00:00:00
+        .message__text さようなら！
+
+    .form
+      = form_for root_path do |f|
+        .text-box
+          = f.text_field :text, placeholder: "type a message", class: 'text-box__input'
+          %label.fa.fa-image.image-label
+            = f.file_field :image, class: 'image-label__input'
+            = f.submit "Send", name: 'commit', class: 'text-box__submit-btn'
+
