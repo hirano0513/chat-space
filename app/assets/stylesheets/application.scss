@@ -21,7 +21,7 @@
     height: 100vh;
     width: 300px;
     background-color: #2f3e51;
-    .left-contents-header {
+    &-header {
       @include left-contensPadding;
       height: 100px;
       background-color: #253141;
@@ -96,18 +96,18 @@
           color: $gray;
           list-style: none;
         }
-        .right-contents-hedder__btn {
-          float: right;
-          line-height: 38px;
-          padding: 0 20px;
-          border: solid 1px $skyblue;
-          color: $skyblue;
-          position: absolute;
-          top: 28px;
-          right: 40px;
-          bottom: auto;
-          left: auto;
-        }
+      }
+      &__btn {
+        float: right;
+        line-height: 38px;
+        padding: 0 20px;
+        border: solid 1px $skyblue;
+        color: $skyblue;
+        position: absolute;
+        top: 28px;
+        right: 40px;
+        bottom: auto;
+        left: auto;
       }
     }
   }
