@@ -1,0 +1,43 @@
+.right-contents {
+  float: right;
+  height: 100%;
+  width: calc(100vw - 300px);
+  &-header {
+    position: relative;
+    @include right-contentsPadding();
+    height: 100px;
+    border-bottom: solid 1px #eeeeee;
+    .current-group {
+      &__name {
+        padding-top: 35px;
+        padding-bottom: 15px;
+        font-size: 20px;
+        color: $darkgray;
+      }
+      &__members {
+        float: left;
+        font-size: 12px;
+        color: $gray;
+      }
+      &__member {
+        float: left;
+        padding-left: 5px;
+        font-size: 12px;
+        color: $gray;
+        list-style: none;
+      }
+    }
+    &__btn {
+      float: right;
+      line-height: 38px;
+      padding: 0 20px;
+      border: solid 1px $skyblue;
+      color: $skyblue;
+      position: absolute;
+      top: 28px;
+      right: 40px;
+      bottom: auto;
+      left: auto;
+    }
+  }
+}

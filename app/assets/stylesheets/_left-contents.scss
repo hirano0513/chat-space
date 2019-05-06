@@ -1,0 +1,50 @@
+.left-contents {
+  float: left;
+  height: 100vh;
+  width: 300px;
+  background-color: #2f3e51;
+  &-header {
+    @include left-contensPadding;
+    height: 100px;
+    background-color: #253141;
+    color: $white;
+    font-size: 16px;
+    font-weight: bold;
+    .user-name {
+      padding-top: 36px;
+      float: left;
+    }
+    .fa {
+      padding-top: 40px;
+      float: right;
+    }
+    .fa-edit {
+      padding-right: 5px;
+    }
+    :visited {
+      color: $white;
+    }
+  }
+  .groups {
+    height: auto;
+    width: 300px;
+    .group {
+      @include left-contensPadding(20px);
+      color: $white;
+      font-weight: bold;
+      a {
+        text-decoration: none;
+      }
+      &__group-name {
+        font-size: 15px;
+      }
+      &__latest-massage {
+        font-size: 11px;
+        padding-top: 5px;
+      }
+      :visited {
+        color: $white;
+      }
+    }
+  }
+}
