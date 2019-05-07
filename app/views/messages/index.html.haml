@@ -1,32 +1,5 @@
 .contents
-  .head グループを作成しました
-  .left-contents
-    .left-contents-header
-      %p.user-name test-user
-      %ul.user-menu
-      = link_to root_path do
-        %li.p.fa.fa-cog
-      = link_to root_path do
-        %li.p.fa.fa-edit
-
-    .groups
-      .group
-        = link_to root_path do
-          %p.group__group-name test-group
-        = link_to root_path do
-          %p.group__latest-massage さようなら！
-
-      .group
-        = link_to root_path do
-          %p.group__group-name sample-group
-        = link_to root_path do
-          %p.group__latest-massage hello!
-
-      .group
-        = link_to root_path do
-          %p.group__group-name example
-        = link_to root_path do
-          %p.group__latest-massage まだメッセージがありません
+  = render 'shared/left-contents'
 
   .right-contents
     .right-contents-header

@@ -1,0 +1,18 @@
+.left-contents
+  .left-contents-header
+    %h3.user-name
+      = current_user.name
+    %ul.user-menu
+    = link_to edit_user_path(current_user) do
+      %li.p.fa.fa-cog
+    = link_to new_group_path do
+      %li.p.fa.fa-edit
+
+  .groups
+    .group
+      - current_user.groups.each do |group|
+        = link_to group_messages_path(group) do
+          %p.group__group-name
+            = group.name
+          %p.group__latest-massage
+            さようなら！
