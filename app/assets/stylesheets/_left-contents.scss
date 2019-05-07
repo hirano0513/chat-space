@@ -29,17 +29,21 @@
     height: auto;
     width: 300px;
     .group {
-      @include left-contensPadding(20px);
+      @include left-contensPadding();
       color: $white;
       a {
         text-decoration: none;
+        color: $white;
       }
       &__group-name {
         font-size: 15px;
+        padding-top: 20px;
       }
-      &__latest-massage {
+      &__latest-message {
         font-size: 11px;
         padding-top: 5px;
+        padding-bottom: 20px;
+
       }
       :visited {
         color: $white;
