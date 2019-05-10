@@ -1,5 +1,6 @@
 .messages {
-  min-height: calc(100vh - 211px);
+  overflow: scroll;
+  height: calc(100vh - 211px);
   background-color: #fafafa;
   padding-top: 20px;
   .message {
