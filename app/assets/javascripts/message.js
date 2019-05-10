@@ -36,7 +36,6 @@ $(function() {
                     </div>
                   </div>`
               return html;
-
     }
   }
 
