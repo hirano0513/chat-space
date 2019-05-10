@@ -1,42 +1,23 @@
 $(function() {
   function buildHTML(message){
-    if (message.image.url) {
-      var html =  `<div class='message'>
-                    <div class='info'>
-                      <p class='info__user'>
-                      ${message.user_name}
-                      </p>
-                      <p class='info__date'>
-                        ${message.created_at}
-                      </p>
-                    </div>
-                    <div class='message__text'>
-                      <p class='lower-message__content'>
-                      ${message.content}
-                      </p>
-                      <img id="new-message__image" src="${message.image.url}" />
-                    </div>
-                  </div>`
-      return html;
-    }
-    else {
-      var html =  `<div class='message'>
-                    <div class='info'>
-                      <p class='info__user'>
-                      ${message.user_name}
-                      </p>
-                      <p class='info__date'>
-                        ${message.created_at}
-                      </p>
-                    </div>
-                    <div class='message__text'>
-                      <p class='lower-message__content'>
-                      ${message.content}
-                      </p>
-                    </div>
-                  </div>`
-              return html;
-    }
+    var image = message.image.url ? <img id="message__image" src="${message.image.url}" /> : "";
+    var html =  `<div class='message'>
+                  <div class='info'>
+                    <p class='info__user'>
+                    ${message.user_name}
+                    </p>
+                    <p class='info__date'>
+                      ${message.created_at}
+                    </p>
+                  </div>
+                  <div class='message__text'>
+                    <p class='lower-message__content'>
+                    ${message.content}
+                    </p>
+                    ${image}
+                  </div>
+                </div>`
+    return html;
   }
 
   $('#new_message').on('submit', function(e) {
@@ -56,7 +37,6 @@ $(function() {
       $('.messages').append(html)
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
       $('form')[0].reset();
-
     })
     .fail(function(){
       alert('error');
