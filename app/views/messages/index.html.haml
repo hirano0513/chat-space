@@ -4,10 +4,11 @@
     .right-contents-header
       .current-group
         %h2.current-group__name
-          = @group.users.name
+          = @group.name
         %ul.current-group__members Member :
-        %li.current-group__member test-user
-        %li.current-group__member test-user2
+        - @group.users.each do |user|
+          %li.current-group__member
+            = user.name
       = link_to edit_group_path(@group) do
         .right-contents-header__btn Edit
     .messages
