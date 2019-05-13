@@ -53,5 +53,3 @@ $(function() {
     $(this).parent().remove();
   });
 });
-
-
