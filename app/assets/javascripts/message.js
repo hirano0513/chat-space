@@ -61,8 +61,8 @@ $(function() {
 
   var reloadMessages = function() {
     last_message_id = $('.message:last').data('message_id');
-    url = location.pathname;
-    url = url.replace('messages', 'api/messages')
+    path = location.pathname;
+    url = path.replace('messages', 'api/messages')
     $.ajax({
       url: url,
       type: 'GET',
@@ -84,5 +84,12 @@ $(function() {
       console.log('error');
     });
   };
-  setInterval(reloadMessages, 10000);
+
+  $(function(){
+  if (location.pathname.match(/messages/)) {
+    setInterval(reloadMessages, 5000);
+  } else {
+    clearInterval(reloadMessages);
+  };
+  });
 });
