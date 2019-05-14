@@ -1,7 +1,7 @@
 $(function() {
   function buildHTML(message){
-    var image = message.image.url ? `<img id="message__image" src="${message.image.url}" />` : "";
-    var html =  `<div class='message'>
+    var image = message.image.url ? `<img id="message__image" src="${message.image.url}"/>` : "";
+    var html =  `<div class='message' 'data-message_id=${message.id}'>
                   <div class='info'>
                     <p class='info__user'>
                     ${message.user_name}
@@ -18,7 +18,7 @@ $(function() {
                   </div>
                 </div>`
     return html;
-  }
+  };
 
   $('#new_message').on('submit', function(e) {
     e.preventDefault();
@@ -40,6 +40,49 @@ $(function() {
     })
     .fail(function(){
       alert('error');
+    });
+  });
+
+  var buildMessageHTML = function(message) {
+    var image = message.image.url ? `<img src="${message.image.url}" class="lower-message__image" />` : "";
+    var html = `<div class="message new-message" data-message_id="${message.id}">
+                  <div class="info">
+                    <p class="info__user">${message.user_name}</p>
+                    <p class="info__date">${message.created_at}</p>
+                  </div>
+                  <div class="message__text">
+                    <p class="lower-message__content">${message.content}</p>
+                    ${image}
+                  </div>
+                </div>`
+    return html;
+    };
+
+
+  var reloadMessages = function() {
+    last_message_id = $('.message:last').data('message_id');
+    url = location.pathname;
+    url = url.replace('messages', 'api/messages')
+    $.ajax({
+      url: url,
+      type: 'GET',
+      dataType: 'json',
+      data: {id: last_message_id}
     })
-  })
+    .done(function(messages) {
+      console.log(messages);
+      var insartHTML = '';
+      messages.forEach(function(message){
+        if ($(".messages").data('group_id') == message.group_id ) {
+          insartHTML = buildMessageHTML(message);
+          $(".messages").append(insartHTML);
+          $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+        };
+      });
+    })
+    .fail(function() {
+      console.log('error');
+    });
+  };
+  setInterval(reloadMessages, 10000);
 });
