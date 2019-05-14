@@ -70,7 +70,6 @@ $(function() {
       data: {id: last_message_id}
     })
     .done(function(messages) {
-      console.log(messages);
       var insartHTML = '';
       messages.forEach(function(message){
         if ($(".messages").data('group_id') == message.group_id ) {
@@ -81,7 +80,6 @@ $(function() {
       });
     })
     .fail(function() {
-      console.log('error');
     });
   };
 
