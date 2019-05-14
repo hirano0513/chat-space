@@ -72,11 +72,9 @@ $(function() {
     .done(function(messages) {
       var insartHTML = '';
       messages.forEach(function(message){
-        if ($(".messages").data('group_id') == message.group_id ) {
           insartHTML = buildMessageHTML(message);
           $(".messages").append(insartHTML);
           $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
-        };
       });
     })
     .fail(function() {
