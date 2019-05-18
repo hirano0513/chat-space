@@ -40,7 +40,7 @@ $(function() {
   var reloadMessages = function() {
     last_message_id = $('.message:last').data('message_id');
     path = location.pathname;
-    url = path.replace('messages', 'api/messages');
+    url = path.replace('messages', 'api/messages')
     $.ajax({
       url: url,
       type: 'GET',
